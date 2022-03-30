@@ -4,4 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :e_scooters
+  has_many :bookings
+  has_many :e_scooters, through: :bookings
+
+
 end
