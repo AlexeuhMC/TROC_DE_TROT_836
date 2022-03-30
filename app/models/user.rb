@@ -7,4 +7,6 @@ class User < ApplicationRecord
   has_many :e_scooters
   has_many :bookings
   has_many :e_scooters, through: :bookings
+
+
 end

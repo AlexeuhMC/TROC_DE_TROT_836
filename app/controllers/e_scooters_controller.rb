@@ -1,12 +1,17 @@
 class EScootersController < ApplicationController
   before_action :set_e_scooter, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    # if @user.owner == true
-    #   @e_scooters = EScooters.where(:user_id)
-    # else
+    if user_signed_in?
+      if current_user.owner == true
+        @e_scooters = EScooter.where(user_id: current_user.id)
+        else
+        @e_scooters = EScooter.all
+      end
+    else
       @e_scooters = EScooter.all
-    # end
+    end
   end
 
   def show
@@ -37,7 +42,7 @@ class EScootersController < ApplicationController
 
   def destroy
     @e_scooter.destroy
-    redirect_to e_scooter_path(@e_scooter)
+    redirect_to root_path
   end
 
   private
