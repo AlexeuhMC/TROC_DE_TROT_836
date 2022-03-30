@@ -1,0 +1,14 @@
+<h2> Your reservations </h2>
+
+ <ul>
+  <% @bookings.each do |booking| %>
+    <li><%= booking.check_in_date %></li>
+    <li><%= booking.check_out_date %></li>
+    <li><%= link_to "Delete this booking",
+            bookings_path,
+            method: :delete,
+            data: { confirm: "Are you sure?" }%></li>
+  <% end %>
+</ul>
+
+<p><%= link_to "Back to e_scooters list", e_scooters_path %></p>
