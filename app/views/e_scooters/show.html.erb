@@ -6,9 +6,14 @@
 <p><%= @e_scooter.street_name %></p>
 <p><%= @e_scooter.disponibility_start %></p>
 <p><%= @e_scooter.disponibility_end %></p>
+
+
+<% if current_user.owner == true %>
+  <p><%= link_to "Edit this e_scooter", edit_e_scooter_path(@e_scooter) %></p>
+  <p><%= link_to "Delete #{@e_scooter.name}",
+                e_scooter_path(@e_scooter),
+                method: :delete,
+                data: { confirm: "Are you sure?" } %></p>
+<% end %>
+
 <p><%= link_to "Back to e_scooters list", e_scooters_path %></p>
-<p><%= link_to "Edit this e_scooter", edit_e_scooter_path(@e_scooter) %></p>
-<p><%= link_to "Delete #{@e_scooter.name}",
-            e_scooter_path(@e_scooter),
-            method: :delete,
-            data: { confirm: "Are you sure?" } %></p>
