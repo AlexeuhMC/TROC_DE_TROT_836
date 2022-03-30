@@ -6,7 +6,7 @@ class EScootersController < ApplicationController
     if user_signed_in?
       if current_user.owner == true
         @e_scooters = EScooter.where(user_id: current_user.id)
-        else
+      else
         @e_scooters = EScooter.all
       end
     else

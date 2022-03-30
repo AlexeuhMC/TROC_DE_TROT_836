@@ -3,7 +3,8 @@ class BookingsController < ApplicationController
   before_action :set_e_scooter, only: [:new, :create]
 
   def index
-    @bookings = Bookings.where(:user_id)
+    @bookings = Booking.all
+    # @bookings = Bookings.where(:user_id)
   end
 
   def show
@@ -16,7 +17,7 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @booking.e_scooter = @e_scooter
-
+    @booking.user = current_user
     if @booking.save
       redirect_to booking_path(@booking), notice: 'Booking was successfully created.'
     else
@@ -25,8 +26,9 @@ class BookingsController < ApplicationController
   end
 
   def destroy
+    @e_scooter = EScooter.find(@booking.e_scooter_id)
     @booking.destroy
-    redirect_to booking_path(@booking)
+    redirect_to e_scooter_path(@e_scooter)
   end
 
   private
@@ -40,6 +42,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:check_in_date, :check_out_date, :user_id, :e_scooter_id)
+    params.require(:booking).permit(:check_in_date, :check_out_date)
   end
 end

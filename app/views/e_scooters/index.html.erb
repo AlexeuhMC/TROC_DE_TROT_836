@@ -8,5 +8,7 @@
   <% end %>
 </ul>
 
-
-<%= link_to 'create', new_e_scooter_path  %>
+<p><% if user_signed_in? && current_user.owner == true %>
+  <%= link_to 'create', new_e_scooter_path  %>
+<% end %></p>
+<p><%= link_to 'See all your reservations', bookings_path %></p>

@@ -1,0 +1,6 @@
+<h3>Book a E-scooter</h3>
+  <%= simple_form_for [@e_scooter, @booking] do |f| %>
+    <%= f.input :check_in_date %>
+    <%= f.input :check_out_date %>
+    <%= f.submit class: 'btn btn-flat' %>
+  <% end %>
