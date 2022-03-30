@@ -10,11 +10,13 @@
 
 
 <p><% if current_user.owner == true %>
+
   <p><%= link_to "Edit this e_scooter", edit_e_scooter_path(@e_scooter) %></p>
   <p><%= link_to "Delete #{@e_scooter.name}",
                 e_scooter_path(@e_scooter),
                 method: :delete,
                 data: { confirm: "Are you sure?" } %></p>
+
 <% end %></p>
 <p><%= link_to "Back to e_scooters list", e_scooters_path %></p>
 <p><%= link_to "Book this e_scooters", new_e_scooter_booking_path(@e_scooter) %></p>

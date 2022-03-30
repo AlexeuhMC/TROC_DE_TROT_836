@@ -4,11 +4,7 @@ class EScootersController < ApplicationController
 
   def index
     if user_signed_in?
-      if current_user.owner == true
-        @e_scooters = EScooter.where(user_id: current_user.id)
-      else
-        @e_scooters = EScooter.all
-      end
+      @e_scooters = EScooter.where(user_id: current_user.id)
     else
       @e_scooters = EScooter.all
     end
