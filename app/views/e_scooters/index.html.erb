@@ -4,12 +4,16 @@
  <ul>
   <% @e_scooters.each do |e_scooter| %>
     <li><%= link_to e_scooter.name, e_scooter_path(e_scooter) %></li>
-    <li><%= e_scooter.price %>€</li>
+    <li><%= e_scooter.price %>€/jour</li>
   <% end %>
 </ul>
 
 
 <p><% if user_signed_in? && current_user.owner == true %>
-  <%= link_to 'create', new_e_scooter_path  %>
+  <%= link_to 'Create a new E-scooter', new_e_scooter_path  %>
+  <p><%= link_to "See all your bookings", bookings_path %></p>
 <% end %></p>
-<p><%= link_to 'See all your reservations', bookings_path %></p>
+
+<p><% if user_signed_in? && current_user.owner == false %>
+  <p><%= link_to "See all your bookings", bookings_path %></p>
+<% end %></p>

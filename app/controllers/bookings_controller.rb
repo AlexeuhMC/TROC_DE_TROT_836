@@ -3,8 +3,11 @@ class BookingsController < ApplicationController
   before_action :set_e_scooter, only: [:new, :create]
 
   def index
-    @bookings = Booking.all
-    # @bookings = Bookings.where(:user_id)
+    if current_user.owner == true
+      @bookings = Booking.where(e_scooter_id: current_user.e_scooter_ids)
+    else
+      @bookings = Booking.where(user_id: current_user.id)
+    end
   end
 
   def show
