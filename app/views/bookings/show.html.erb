@@ -1,12 +1,19 @@
-<h1>Your booking</h1>
+<div class="banners" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1566936737687-8f392a237b8b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80);">
+  <div class="container">
+    <h1>Your booking</h1>
+  </div>
+</div>
 
-<h2><%= @booking.e_scooter.name %></h2>
-<h2><%= @booking.check_in_date %></h2>
-<h2><%= @booking.check_out_date %></h2>
 
-<p><%= link_to "See all your bookings", bookings_path %></p>
-<p><%= link_to "Back to e_scooters list", e_scooters_path %></p>
-<p><%= link_to "Delete this booking",
-            booking_path(@booking),
-            method: :delete,
-            data: { confirm: "Are you sure?" }%></p>
+<div class="container">
+  <h2><%= @booking.e_scooter.name %></h2>
+  <h2><%= @booking.check_in_date %></h2>
+  <h2><%= @booking.check_out_date %></h2>
+
+  <p><%= link_to "See all your bookings", bookings_path %></p>
+  <p><%= link_to "Back to e_scooters list", e_scooters_path %></p>
+  <p><%= link_to "Delete this booking",
+              booking_path(@booking),
+              method: :delete,
+              data: { confirm: "Are you sure?" }%></p>
+</div>
