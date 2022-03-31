@@ -1,4 +1,8 @@
-<h1>New E-Scooter </h1>
+<div class="banners" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1566936737687-8f392a237b8b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80);">
+  <div class="container">
+    <h1>New E-Scooter </h1>
+  </div>
+</div>
 
 <div class="container">
   <%= simple_form_for @e_scooter do |f| %>
@@ -11,4 +15,5 @@
     <%= f.submit "Create new e-scooter", class: "btn btn-secondary" %>
 <% end %>
 <%= link_to 'Homepage', root_path, class: "btn btn-secondary mt-3 mb-3" %>
+
 </div>
