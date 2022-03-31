@@ -5,15 +5,16 @@
 </div>
 
 
-<div class="container">
+<div class="container mt-3">
   <h2><%= @booking.e_scooter.name %></h2>
   <h2><%= @booking.check_in_date %></h2>
   <h2><%= @booking.check_out_date %></h2>
 
-  <p><%= link_to "See all your bookings", bookings_path %></p>
-  <p><%= link_to "Back to e_scooters list", e_scooters_path %></p>
+  <p><%= link_to "See all your bookings", bookings_path, class: "btn btn-secondary mt-3" %></p>
+  <p><%= link_to "Back to e_scooters list", e_scooters_path, class: "btn btn-secondary mt-3" %></p>
   <p><%= link_to "Delete this booking",
               booking_path(@booking),
               method: :delete,
-              data: { confirm: "Are you sure?" }%></p>
+              data: { confirm: "Are you sure?" },
+              class: "btn btn-secondary mt-3" %></p>
 </div>

@@ -3,7 +3,6 @@
     <h2>Welcome to</h2>
     <h1>TROC TO TROT 836</h1>
     <p>Choose it, Book  it and Ride it !</p>
-    <a class="btn btn-flat" href="#">Apply now</a>
   </div>
 </div>
 
@@ -14,9 +13,8 @@
         <div class="card">
         <img class="card-img-top" src="https://images.unsplash.com/photo-1596111481242-202979790f93?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3626&q=80" alt="Card image cap">
           <div class="card-body">
-            <h5 class="card-title"><%= link_to e_scooter.name, e_scooter_path(e_scooter) %></h5>
+            <h5 class="card-title fw-bold"><%= link_to e_scooter.name, e_scooter_path(e_scooter), class: "text-decoration-none" %></h5>
             <p class="card-text"><%= e_scooter.price %>€/jour </p>
-            <a href="" class="btn btn-secondary btn active" role="button" aria-pressed="true">Book it !</a>
           </div>
         </div>
       </div>
