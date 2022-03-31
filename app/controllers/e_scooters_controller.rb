@@ -3,7 +3,7 @@ class EScootersController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    if user_signed_in?
+    if user_signed_in? && current_user.owner == true
       @e_scooters = EScooter.where(user_id: current_user.id)
     else
       @e_scooters = EScooter.all
