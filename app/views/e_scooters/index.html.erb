@@ -1,37 +1,37 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1566936737687-8f392a237b8b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80);">
+<div class="banner-index-e_scooters" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1566936737687-8f392a237b8b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80);">
   <div class="container">
     <h2>Welcome to</h2>
     <h1>TROC TO TROT 836</h1>
-    <p>Choose your ride, Book it and VavaVroom !</p>
+    <p>Choose it, Book  it and Ride it !</p>
     <a class="btn btn-flat" href="#">Apply now</a>
   </div>
 </div>
 
 <div class="container">
-
-<div class="row">
-    <% @e_scooters.each do |e_scooter| %>
-    <div class="col-sm-4">
-      <div class="card">
-      <img class="card-img-top" src="https://images.unsplash.com/photo-1596111481242-202979790f93?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3626&q=80" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title"><%= link_to e_scooter.name, e_scooter_path(e_scooter) %></h5>
-          <p class="card-text"><%= e_scooter.price %>€/jour </p>
-          <a href="#" class="btn btn-secondary btn active" role="button" aria-pressed="true">Book it !</a>
+  <div class="row">
+      <% @e_scooters.each do |e_scooter| %>
+      <div class="col-sm-4">
+        <div class="card">
+        <img class="card-img-top" src="https://images.unsplash.com/photo-1596111481242-202979790f93?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3626&q=80" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title"><%= link_to e_scooter.name, e_scooter_path(e_scooter) %></h5>
+            <p class="card-text"><%= e_scooter.price %>€/jour </p>
+            <a href="" class="btn btn-secondary btn active" role="button" aria-pressed="true">Book it !</a>
+          </div>
         </div>
       </div>
+      <% end %>
     </div>
-    <% end %>
-  </div>
 
-  <div class="btn-index" >
-    <p><% if user_signed_in? && current_user.owner == true %>
-      <a href="/e_scooters/new" class="btn btn-secondary btn active" role="button" aria-pressed="true">Create</a>
-      <a href="/bookings" class="btn btn-secondary btn active" role="button" aria-pressed="true">Your Bookings</a>
-    <% end %></p>
+    <div class="btn-index" >
+      <p><% if user_signed_in? && current_user.owner == true %>
+        <a href="/e_scooters/new" class="btn btn-secondary btn active" role="button" aria-pressed="true">Create</a>
+        <a href="/bookings" class="btn btn-secondary btn active" role="button" aria-pressed="true">Your Bookings</a>
+      <% end %></p>
 
-    <p><% if user_signed_in? && current_user.owner == false %>
-      <a href="/bookings" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Your Bookings</a>
-    <% end %></p>
+      <p><% if user_signed_in? && current_user.owner == false %>
+        <a href="/bookings" class="btn btn-secondary btn active" role="button" aria-pressed="true">Your Bookings</a>
+      <% end %></p>
+    </div>
   </div>
 </div>

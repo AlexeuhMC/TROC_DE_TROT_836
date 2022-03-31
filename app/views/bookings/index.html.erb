@@ -1,16 +1,24 @@
-<h2> Your bookings </h2>
+<div class="banner-index-bookings" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1566936737687-8f392a237b8b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80);">
+  <div class="container">
+    <h2> Your bookings </h2>
+  </div>
+</div>
 
- <ul>
-  <% @bookings.each do |booking| %>
-    <li><%= link_to booking.e_scooter.name, booking_path(booking) %></li>
-    <li><%= booking.e_scooter.price %>€/jour</li>
-    <li><%= booking.check_in_date %></li>
-    <li><%= booking.check_out_date %></li>
-    <%# <li><%= link_to "Delete this booking",
-            booking_path(booking),
-            method: :delete,
-            data: { confirm: "Are you sure?" }%>
-  <% end %>
-</ul>
-
-<p><%= link_to "Back to e_scooters list", e_scooters_path %></p>
+<div class="container">
+  <div class="row">
+    <% @bookings.each do |booking| %>
+    <div class="col-sm-4">
+      <div class="card">
+        <img class="card-img-top" src="https://images.unsplash.com/photo-1596111481242-202979790f93?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3626&q=80" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title"><%= link_to booking.e_scooter.name, booking_path(booking) %></h5>
+          <p class="card-text"><%= booking.e_scooter.price %>€/jour </p>
+          <p class="card-text"><%= booking.check_in_date %></p>
+          <p class="card-text"><%= booking.check_out_date %></p>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+ <a href="/e_scooters" class="btn btn-secondary btn active" role="button" aria-pressed="true">Homepage</a>
+</div>
