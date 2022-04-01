@@ -4,7 +4,8 @@ class BookingsController < ApplicationController
 
   def index
     if current_user.owner == true
-      @bookings = Booking.where(e_scooter_id: current_user.e_scooter_ids)
+      e_scooter = EScooter.where(user_id: current_user)
+      @bookings = Booking.where(e_scooter_id: e_scooter)
     else
       @bookings = Booking.where(user_id: current_user.id)
     end

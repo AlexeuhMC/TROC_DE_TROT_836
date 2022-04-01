@@ -10,8 +10,8 @@
   <div class="row">
       <% @e_scooters.each do |e_scooter| %>
       <div class="col-sm-4">
-        <div class="card">
-        <img class="card-img-top" src="https://images.unsplash.com/photo-1596111481242-202979790f93?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3626&q=80" alt="Card image cap">
+        <div class="card cover">
+        <%= cl_image_tag e_scooter.photo.key, crop: :fill %>
           <div class="card-body">
             <h5 class="card-title fw-bold"><%= link_to e_scooter.name, e_scooter_path(e_scooter), class: "text-decoration-none" %></h5>
             <p class="card-text"><%= e_scooter.price %>€/jour </p>
@@ -27,9 +27,9 @@
         <a href="/bookings" class="btn btn-secondary btn active" role="button" aria-pressed="true">Your Bookings</a>
       <% end %></p>
 
-      <p><% if user_signed_in? && current_user.owner == false %>
-        <a href="/bookings" class="btn btn-secondary btn active" role="button" aria-pressed="true">Your Bookings</a>
-      <% end %></p>
+      <%# <p><% if user_signed_in? && current_user.owner == false %>
+        <%# <a href="/bookings" class="btn btn-secondary btn active" role="button" aria-pressed="true">Your Bookings</a> %>
+      <%# <% end %>
     </div>
   </div>
 </div>
