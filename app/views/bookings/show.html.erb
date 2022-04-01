@@ -10,8 +10,13 @@
       <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" style="width:140px" alt="Card image cap">
     <div class="card-infos " >
       <h2><%= @booking.e_scooter.name %></h2>
-      <h3><%= @booking.check_in_date %></h3>
-      <h3><%= @booking.check_out_date %></h3>
+      <h3>Réservation</h3>
+      <h4>from : <%= @booking.check_in_date %></h4>
+      <h4>to : <%= @booking.check_out_date %></h4>
+      <% start_time =  @booking.check_in_date %>
+      <% end_time   =  @booking.check_out_date%>
+      <p><%= distance_of_time_in_words(start_time, end_time)%> at <%= @booking.e_scooter.price %>€/day </p>
+      <p>Total of <strong><%= (end_time - start_time).to_i * @booking.e_scooter.price%>€</strong> </p>
     </div>
     </div>
   </div>
@@ -24,3 +29,10 @@
                 data: { confirm: "Are you sure?" },
                 class: "btn btn-secondary mt-3" %></p>
   </div>
+
+      <%# <% start_time =  @booking.check_in_date %>
+      <%# <% end_time   =  @booking.check_out_date
+      <%# <% days = distance_of_time_in_words(start_time, end_time).to_i
+      <%# <%= distance_of_time_in_words(start_time, end_time).to_i
+      <%# <%= (distance_of_time_in_words(start_time, end_time).to_i * @booking.e_scooter.price) %>
+<%# <%= (end_time - start_time).to_i * @booking.e_scooter.price%>
