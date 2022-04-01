@@ -5,25 +5,30 @@
 </div>
 
 <div class="container mt-3">
-  <div>
-    <h2><%= @e_scooter.name %></h2>
-    <%= cl_image_tag @e_scooter.photo.key, height: 400, width: 355, crop: :fill %>
-    <p><%= @e_scooter.description %></p>
-    <p><%= @e_scooter.price %>€/jour</p>
-    <p><%= @e_scooter.street_name %></p>
-    <p><%= @e_scooter.disponibility_start %></p>
-    <p><%= @e_scooter.disponibility_end %></p>
-  </div>
-  <p><% if user_signed_in? && current_user.owner == true %>
+  <div class="card-product" class="d-flex justify-content-center">
+    <div class="d-flex">
+      <%= cl_image_tag @e_scooter.photo.key, height: 400, width: 355, crop: :fill %>
+      <div class="card-infos " >
+        <h2><%= @e_scooter.name %></h2>
+        <p><%= @e_scooter.description %></p>
+        <p><%= @e_scooter.price %>€/jour</p>
+        <p><%= @e_scooter.street_name %></p>
+        <p><%= @e_scooter.disponibility_start %></p>
+        <p><%= @e_scooter.disponibility_end %></p>
+      </div>
+    </div>
+    <p><% if user_signed_in? && current_user.owner == true %>
+
     <p><%= link_to "Edit this e_scooter", edit_e_scooter_path(@e_scooter), class: "btn btn-secondary mt-3" %></p>
     <p><%= link_to "Delete #{@e_scooter.name}",
                   e_scooter_path(@e_scooter),
                   method: :delete,
                   data: { confirm: "Are you sure?" },
                   class: "btn btn-secondary mt-3" %></p>
-  <% end %></p>
-  <p><% if user_signed_in? && current_user.owner == false %>
-    <p><%= link_to "Book this e_scooters", new_e_scooter_booking_path(@e_scooter), class: "btn btn-secondary mt-3" %></p>
-  <% end %></p>
-  <p><%= link_to "Back to e_scooters list", e_scooters_path, class: "btn btn-secondary mt-3 mb-3" %></p>
+    <% end %></p>
+    <p><% if user_signed_in? && current_user.owner == false %>
+      <p><%= link_to "Book this e_scooters", new_e_scooter_booking_path(@e_scooter), class: "btn btn-secondary mt-3" %></p>
+    <% end %></p>
+    <p><%= link_to "Back to e_scooters list", e_scooters_path, class: "btn btn-secondary mt-3 mb-3" %></p>
+  </div>
 </div>

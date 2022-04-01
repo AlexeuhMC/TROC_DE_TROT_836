@@ -6,6 +6,15 @@
   margin-top: 20px;
 }
 
+.d-flex {
+  display: flex !important;
+  margin: 35px 150px;
+  justify-content: center;
+}
+
+.card-infos{
+  margin-left: 30px;
+}
 .card-title a {
   color: black;
 }
