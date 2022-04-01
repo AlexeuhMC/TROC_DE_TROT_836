@@ -30,6 +30,17 @@
                 class: "btn btn-secondary mt-3" %></p>
   </div>
 
+  <img class="gif" src="https://c.tenor.com/zRfxxnlRTK0AAAAC/thats-how-i-roll-chihuahua.gif" alt="Card image cap">
+
+  <p><%= link_to "See all your bookings", bookings_path, class: "btn btn-secondary mt-3" %></p>
+  <p><%= link_to "Back to e_scooters list", e_scooters_path, class: "btn btn-secondary mt-3" %></p>
+  <p><%= link_to "Delete this booking",
+              booking_path(@booking),
+              method: :delete,
+              data: { confirm: "Are you sure?" },
+              class: "btn btn-secondary mt-3" %></p>
+</div>
+
       <%# <% start_time =  @booking.check_in_date %>
       <%# <% end_time   =  @booking.check_out_date
       <%# <% days = distance_of_time_in_words(start_time, end_time).to_i

@@ -7,7 +7,7 @@
 <div class="container mt-3">
   <div class="card-product" class="d-flex justify-content-center">
     <div class="d-flex">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" style="width:140px" alt="Card image cap">
+      <%= cl_image_tag @e_scooter.photo.key, height: 400, width: 355, crop: :fill %>
       <div class="card-infos " >
         <h2><%= @e_scooter.name %></h2>
         <p><%= @e_scooter.description %></p>
@@ -18,6 +18,7 @@
       </div>
     </div>
     <p><% if user_signed_in? && current_user.owner == true %>
+
     <p><%= link_to "Edit this e_scooter", edit_e_scooter_path(@e_scooter), class: "btn btn-secondary mt-3" %></p>
     <p><%= link_to "Delete #{@e_scooter.name}",
                   e_scooter_path(@e_scooter),

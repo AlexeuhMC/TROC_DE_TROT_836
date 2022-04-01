@@ -9,7 +9,7 @@
     <% @bookings.each do |booking| %>
     <div class="col-sm-4">
       <div class="card">
-        <img class="card-img-top" src="https://images.unsplash.com/photo-1596111481242-202979790f93?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3626&q=80" alt="Card image cap">
+        <%= cl_image_tag booking.e_scooter.photo.key, crop: :fill %>
         <div class="card-body">
           <h5 class="card-title fw-bold"><%= link_to booking.e_scooter.name, booking_path(booking), class: "text-decoration-none" %></h5>
           <p class="card-text">From <%= booking.check_in_date %></p>
