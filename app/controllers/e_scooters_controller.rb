@@ -48,6 +48,6 @@ class EScootersController < ApplicationController
   end
 
   def e_scooter_params
-    params.require(:e_scooter).permit(:name, :description, :price, :street_name, :disponibility_start, :disponibility_end)
+    params.require(:e_scooter).permit(:name, :description, :price, :street_name, :disponibility_start, :disponibility_end, :photo)
   end
 end

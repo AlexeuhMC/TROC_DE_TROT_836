@@ -7,6 +7,7 @@
 <div class="container mt-3">
   <div>
     <h2><%= @e_scooter.name %></h2>
+    <%= cl_image_tag @e_scooter.photo.key, height: 400, width: 355, crop: :fill %>
     <p><%= @e_scooter.description %></p>
     <p><%= @e_scooter.price %>€/jour</p>
     <p><%= @e_scooter.street_name %></p>
